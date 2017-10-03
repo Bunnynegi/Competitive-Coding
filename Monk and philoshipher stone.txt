@@ -1,0 +1,46 @@
+https://www.hackerearth.com/practice/data-structures/stacks/basics-of-stacks/practice-problems/algorithm/monk-and-philosophers-stone/
+#include<bits/stdc++.h>
+using namespace std;
+int flag=0;
+
+int main()
+{
+    stack<int>a;
+    int n;
+    cin>>n;
+    int b[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>b[i];
+    }
+    string s;
+    int q,x,i=0,sum=0;
+    cin>>q>>x;
+    while(q--)
+    {
+    
+        cin>>s;
+        if(s[0]=='H')
+        {
+           a.push(b[i]);
+           sum+=a.top();
+           i++;
+           if(sum==x){
+               flag=1;
+            cout<<a.size()<<endl;
+            break;
+           }
+        }
+        else
+        {
+            
+            sum-=a.top();
+            a.pop();
+        }
+    }
+    if(flag==0)
+    cout<<-1<<endl;
+    
+    
+    return 0;
+}

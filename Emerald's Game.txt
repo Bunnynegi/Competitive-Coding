@@ -1,0 +1,50 @@
+https://www.hackerearth.com/challenge/college/efficiency/algorithm/emeralds-game/
+
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+
+int main()
+{
+   int t;
+   cin>>t;
+   while(t--)
+   {
+       ll n;
+       cin>>n;
+       if(n==0)
+       cout<<"LOSE"<<endl;
+       else
+       {
+        ll a[10]={0};
+        
+       
+       for(int i=0;i<1000000;i++)
+       {
+           ll l=(i+1)*n;
+           ll y=l;
+           int c=0;
+           while(y!=0)
+           {
+               int x=y%10;
+               a[x]=1;
+               y=y/10;
+           }
+        for(int j=0;j<10;j++)
+        {
+            if(a[j]==1)
+                c++;
+        }
+        if(c==10)
+        {
+            cout<<l<<endl;
+            break;
+        }
+       }
+        
+           
+       }
+   }
+    return 0;
+}

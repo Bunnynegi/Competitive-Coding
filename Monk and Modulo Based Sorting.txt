@@ -1,0 +1,27 @@
+https://www.hackerearth.com/practice/algorithms/sorting/merge-sort/practice-problems/algorithm/monk-and-modulo-based-sorting/
+#include <iostream>
+#include<set>
+#include<map>
+#include<string>
+using namespace std;
+typedef long long ll;
+
+
+
+int main()
+{
+    ll m,k,n;
+    cin>>m>>k;
+    multimap<ll,ll>a;
+    for(int i=0;i<m;i++)
+    {
+        cin>>n;
+        a.insert (pair<ll,ll>(n%k,n));
+        
+    }
+    for (multimap<ll,ll>::iterator it=a.begin(); it!=a.end(); ++it)
+	    cout<<(*it).second<<" ";
+	cout<<endl;
+
+    return 0;
+}

@@ -1,0 +1,26 @@
+https://www.hackerearth.com/problem/algorithm/monk-and-square-root/
+
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+
+int main()
+{
+    ll t; 
+    cin>>t;
+    while(t--)
+    {
+        ll n,m,c=-1;
+        cin>>n>>m;
+        for(ll i=0; i<m; i++)
+        {
+            if((i*i)%m == n)
+            {
+                c= i;
+                break;
+            }
+        }    
+        cout<<c<<endl;
+    }
+    
+}
