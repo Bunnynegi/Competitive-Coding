@@ -13,14 +13,34 @@ using namespace std;
 
 typedef long long ll;
 
+
 int main()
 {
 	fast;
-
-
-
-	return 0;
+	ll t; cin>>t;
+	while(t--)
+	{
+        ll n;
+		cin>>n;
+        ll a[n]={0};
+        ll first=4294967295/(n+1);
+        ll cycle=4294967295%(n+1);
+        a[0]=first+cycle/2+1;
+		cout<<a[0]<<" ";
+        REP(i,1,n)cout<<first<<" ";
+        cout<<endll;
+    }
+    	return 0;
 }
+
+
+
+
+
+
+
+
+
 
 
 

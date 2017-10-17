@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1507957872 source:c:\users\bunny negi\documents\github\competitive-coding\vangelis the batbear and the bubbles challenge\main.cpp
+	<bits/stdc++.h>
+	<iostream>
+	<list>
+	<limits.h>
+
