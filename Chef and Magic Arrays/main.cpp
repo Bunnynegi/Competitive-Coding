@@ -19,32 +19,60 @@ typedef long long ll;
 
 int main()
 {
-	fast;
-	ll t;cin>>t;
+    fast;
+    int t,n,m,a,i,j,k,f;
+    scanf("%d",&t);
     while(t--)
-	{
-		ll n,x;
-		cin>>n;
-		ll mini[n]={0},maxi[n]={0};
-		REP(i,0,n)
-		{
-		    cin>>x;
-		    ll a[x]={0};
-		    REP(j,0,x){cin>>a[j];}
-            mini[i]=*min_element(a,a+x);
-            maxi[i]=*max_element(a,a+x);
-		}
-		 ll diff[n-1]={0},sum=0;
-    REP(i,0,n-1)
     {
-        diff[i]=abs(mini[i]-maxi[i+1]);
-        sum+=diff[i]*(i+1);
-        cout<<sum<<endll;
-    }
-    }
+       //v.clear();
+        //dp.clear();
+        scanf("%d",&n);
+        int siz[n];
+        vector <vector<long> > v;
+        vector <vector<long> > dp;
+        for( i=0;i<n;i++)
+        {
+            scanf("%d",&m);
+            siz[i]=m;
+            vector<long> p(m,0);
+            vector<long> b(m);
+            for( j=0;j<m;j++)
+            {
+                scanf("%d",&b[j]);
 
-	return 0;
+            }
+                v.push_back(b);
+                dp.push_back(p);
+            //v[i].push_back(b);
+
+        }
+        if(n==2)
+        {
+           long maxi1=*max_element(v[0].begin(),v[0].end());
+           long mini1=*min_element(v[0].begin(),v[0].end());
+           long maxi2=*max_element(v[1].begin(),v[1].end());
+           long mini2=*min_element(v[1].begin(),v[1].end());
+            cout<<max(abs(maxi2-mini1),abs(mini2-maxi1))<<"\n";
+            continue;
+        }
+        for(i=1;i<n;i++)
+        {
+            m=siz[i];
+            f=siz[i-1];
+            for(j=0;j<m;j++)
+            {
+                dp[i][j]=max(dp[i][j],dp[i-1][0]+abs(v[i-1][f-1]-v[i][j])*i);
+                for(k=1;k<f;k++)
+                {
+                    dp[i][j]=max(dp[i][j],dp[i-1][k]+abs(v[i-1][k-1]-v[i][j])*i);
+                }
+            }
+        }
+        cout<<*max_element(dp[n-1].begin(),dp[n-1].end())<<"\n";
+    }
+    return 0;
 }
+
 
 
 

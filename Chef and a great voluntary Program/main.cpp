@@ -98,7 +98,6 @@ int main()
         }
         else
         {
-            //cout<<3<<endl;
             for(int i = 0;i<n1;i++)
                 ans += add("a",min(x,a)),ans+=add("b",min(y,b)),a-=min(a,x),b-=min(b,y);
         }
