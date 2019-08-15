@@ -1,0 +1,29 @@
+https://www.hackerearth.com/problem/algorithm/monk-and-suffix-sort/
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main()
+{   
+    vector<string>a;
+    string s;
+    int k;
+    cin>>s>>k;
+    a.push_back(s);
+    int l=s.length();
+    int mlk=l;
+    string uchhalamba=s;
+    while(--l)
+    {
+        int i=1;
+        uchhalamba=uchhalamba.substr(i,--mlk);
+        a.push_back(uchhalamba);
+        //cout<<a[0]<<a[1]<<a[2]<<a[3];
+        
+    }
+    sort(a.begin(),a.end());
+    
+    cout<<a[k-1]<<endl;
+    
+    
+    return 0;
+}

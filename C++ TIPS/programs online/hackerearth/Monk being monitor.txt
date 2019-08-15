@@ -1,0 +1,38 @@
+https://www.hackerearth.com/problem/algorithm/monk-being-monitor/
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        ll x;
+        cin>>x;
+        ll a[1000001]={0},b[1000001]={0};
+        ll maximum=0,minimum=9e18;
+        for(int i=0;i<x;i++)
+        {
+            cin>>a[i];
+            b[a[i]]++;
+        }
+        for(int i=0;i<x;i++)
+        {
+            minimum=min(minimum,b[a[i]]);
+            maximum=max(maximum,b[a[i]]);
+            
+        }
+        ll k=maximum-minimum;
+        if(k>0)
+        {
+            cout<<k<<endl;
+        }
+        else
+        {
+            cout<<"-1"<<endl;
+        }
+    }
+    return 0;
+}

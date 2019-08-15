@@ -1,0 +1,46 @@
+https://www.hackerearth.com/problem/algorithm/monk-and-divisor-conundrum/
+
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define max 200000
+int gcd(int a,int b)
+{
+    return b==0 ? a : gcd(b , a%b);
+}
+ll lcm(ll a, ll b)
+{
+    return (a*b)/gcd(a,b);
+}
+
+int main(){
+	ll n,x;
+	cin>>n;
+	ll a[max+1000]={0},f[max+10000]={0};
+
+    for(ll i=0; i<n; i++)
+    {
+        cin>>x;
+        f[x]++;
+        //cout<<f[x]<<" ";
+    }
+    //seive erathostens used to eliminte multiple of no.s example is prime no. question
+	for(ll i=1; i<=max; i++)
+		for(ll j=i; j<=max; j+=i)
+		{	a[i]+=f[j];
+		    //cout<<a[i]<<" ";
+		}   
+	ll t;
+	cin>>t;
+	while(t--)
+	{
+		ll p, q;
+		cin>>p>>q;
+		ll temp=lcm(p,q);
+		if(temp>max)
+		 	cout<<a[p]+a[q]<<endl;
+		else
+		cout<<a[p]+a[q]-a[temp]<<endl;
+	}
+	return 0;
+}

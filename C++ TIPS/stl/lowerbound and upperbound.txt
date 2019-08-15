@@ -1,0 +1,32 @@
+// lower_bound/upper_bound example
+#include <iostream>     // std::cout
+#include <algorithm>    // std::lower_bound, std::upper_bound, std::sort
+#include <vector>       // std::vector
+using namespace std;
+int main () {
+  int a[] = {0,10,20,30};
+                 // 10 10 10 20 20 20 30 30
+
+
+  int low=upper_bound (a,a+4, 19)-a; //          ^
+ //up= std::upper_bound (v.begin(), v.end(), 20); //                   ^
+
+  cout << "lower_bound at position " << low << '\n';
+  //std::cout << "upper_bound at position " << (up - v.begin()) << '\n';
+
+  return 0;
+}
+
+for lower_bound
+if lowerbound is used it give the upper value index of hat element if 11 is taken then it give the index 2 from indexof 0,1,2,3
+if we take 19,20 it give the same index 2 and if value is 21,24,29 or more it give the index of 3
+
+
+for upper bouund
+if 20,21,29 its index is 3// important
+
+and if 19 is its index is 2
+
+
+main differnece between both is 
+in upper bound at that elemt its gives the upperr index but lower element give the index of that element

@@ -1,0 +1,53 @@
+
+let the array be a[5] = {1, 2, 3, 4, 5};
+then if u try 
+
+cout << (upper_bound(a, a+5, <NUM to be searched say 3> ) - a);
+
+but dont use vector iterator
+ex==
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+int main()
+{
+    ll q,n,x,y,r;
+    vector<long long>a;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        cin>>x>>y;
+        a.push_back(ceil(sqrt(x*x+y*y)));
+    }
+    cin>>q;
+    while(q--)
+    {
+        cin>>r;
+        auto it = lower_bound(a.begin(),a.end(),r);
+        
+        int t=it-a.begin();
+        cout<<t<<endl;
+        
+        //cout<<(int)(upper_bound(a,a+n,r)-a)<<endl;
+    }
+    return 0;
+    
+}
+
+input
+5
+1 1
+2 2
+3 3
+-1 -1
+4 4
+2
+3
+32
+output
+2
+5
+expected output
+3
+5
